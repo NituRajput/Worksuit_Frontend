@@ -1,0 +1,5 @@
+# .eslintignore
+.husky/
+package.json
+.eslintrc
+commitlint.config.cjs

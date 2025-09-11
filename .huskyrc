@@ -1,0 +1,7 @@
+{
+  "hooks": {
+    "commit-msg": "npx --no -- commitlint --edit",
+    "pre-commit": "lint-staged",
+    "pre-push": "yarn build"
+  }
+}
