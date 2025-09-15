@@ -9,6 +9,8 @@ interface FormInputProps extends InputHTMLAttributes<HTMLInputElement> {
   showPasswordToggle?: boolean;
   isRequired?: boolean;
   infoTooltip?: string;
+  readOnly?:boolean
+  placeholder?:string
 }
 const FormInput = ({
   label,
@@ -20,6 +22,7 @@ const FormInput = ({
   isRequired = false,
   infoTooltip,
   className = '',
+  readOnly = false,
   ...props
 }: FormInputProps) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -45,7 +48,7 @@ const FormInput = ({
         {leftIcon && <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             {leftIcon}
           </div>}
-        <input {...props} type={inputType} className={`
+        <input  {...props} type={inputType} className={`
             block w-full rounded-md shadow-sm text-sm
             ${leftIcon ? 'pl-10' : 'pl-3'}
             ${showPasswordToggle || rightIcon ? 'pr-10' : 'pr-3'}

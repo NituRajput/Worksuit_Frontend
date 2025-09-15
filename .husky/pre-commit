@@ -1,5 +1,23 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npx lint-staged 
-yarn type-check
+echo "🔍 Running pre-commit validation..."
+
+# Run lint-staged for formatting and basic linting
+echo "📝 Running lint-staged..."
+npx lint-staged
+
+# Check for TypeScript errors
+echo "📝 Checking TypeScript types..."
+npm run type-check
+
+# Check for critical ESLint errors (excluding formatting)
+echo "🚨 Checking for critical ESLint errors..."
+if npx eslint . --ext .js,.jsx,.ts,.tsx --quiet --max-warnings 0; then
+  echo "✅ No critical ESLint errors found"
+else
+  echo "❌ Critical ESLint errors detected. Please fix them before committing."
+  exit 1
+fi
+
+echo "✅ Pre-commit validation passed!"

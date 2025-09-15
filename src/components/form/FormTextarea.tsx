@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { TextareaHTMLAttributes } from 'react';
 import { Info } from 'lucide-react';
 interface FormTextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: string;
@@ -6,6 +6,7 @@ interface FormTextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> 
   error?: string;
   isRequired?: boolean;
   infoTooltip?: string;
+  placeholder?:string
 }
 const FormTextarea = ({
   label,

@@ -1,7 +1,18 @@
-# Ignore artifacts:
-build
-dist
-coverage
-node_modules
-public
+node_modules/
+dist/
+build/
+.next/
+.nuxt/
+.vuepress/dist/
+.serverless/
+.fusebox/
+.dynamodb/
+.tern-port/
+coverage/
+.nyc_output/
+*.log
+*.tgz
+*.tar.gz
+package-lock.json
 yarn.lock
+pnpm-lock.yaml
